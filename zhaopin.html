@@ -1,0 +1,347 @@
+
+<html>
+
+<head>
+
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <title>星级评价</title>
+    <script src="https://cctimage.zhaopin.com/static/wechat-pd/jquery.2.1.1min.js"></script>
+    <style>
+        body {
+            border: 0;
+            padding: 0;
+            width: 360px;
+            margin: auto;
+        }
+
+        .content-container {
+            background: url(https://cctimage.zhaopin.com/static/wechat-pd/top.png);
+            background-size: 100% 100%;
+            height: 142px;
+        }
+
+        .header-title {
+            margin-top: -13px;
+        }
+
+            .header-title .title-info {
+                padding-left: 23px;
+                border-bottom: 1px solid #E2E2E2;
+            }
+
+            .header-title p:first-child {
+                font-size: 17px;
+                color: #333333;
+                margin: 5px 0;
+            }
+
+            .header-title .type {
+                border: 1px solid #67A6EF;
+                color: #4687D3;
+                font-size: 11px;
+                padding: 0 6px;
+                margin-right: 12px;
+            }
+
+            .header-title .style {
+                color: #666666;
+                font-size: 13px;
+                margin: 0;
+                padding: 4px 0;
+            }
+
+            .header-title p span {
+                color: #151515;
+                font-size: 16px;
+                padding: 0 6px;
+            }
+
+        .cut-off－rule {
+            border-top: 1px dashed #F2F2F2;
+            padding: 10px 0 !important;
+        }
+
+        .start-info {
+            color: #333333;
+            margin: 20px 23px;
+            border-bottom: 1px solid #F2F2F2;
+        }
+
+            .start-info div {
+                padding-bottom: 20px;
+            }
+
+            .start-info span {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .start-info .start-num {
+                background: url(https://cctimage.zhaopin.com/static/wechat-pd/nostar.png);
+                width: 20px;
+                height: 20px;
+                background-size: 100% 100%;
+                cursor: pointer;
+                margin: 0px 5px;
+            }
+
+                .start-info .start-num:hover {
+                    background: url(https://cctimage.zhaopin.com/static/wechat-pd/star.png);
+                    width: 20px;
+                    height: 20px;
+                    background-size: 100% 100%;
+                }
+
+            .start-info .start-on {
+                background: url(https://cctimage.zhaopin.com/static/wechat-pd/star.png);
+                width: 20px;
+                height: 20px;
+                background-size: 100% 100%;
+            }
+
+            .start-info .score {
+                font-size: 13px;
+                color: #999999;
+            }
+
+                .start-info .score i {
+                    font-style: initial;
+                }
+
+            .start-info .start-list {
+                /*padding: 0 9px;*/
+            }
+
+        .desc-info {
+            margin: 20px 23px;
+        }
+
+            .desc-info p {
+                font-size: 15px;
+                color: #444444;
+            }
+
+            .desc-info textarea {
+                border: 1px solid #ccbebe;
+                width: 314px;
+                height: 108px;
+                color: #999999;
+                font-size: 13px;
+            }
+
+                .desc-info textarea:focus {
+                    outline: 0px;
+                }
+
+        footer {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+            footer button {
+                background: #67A6EF;
+                color: #ffffff;
+                padding: 8px 53px;
+                border-radius: 20px;
+                font-size: 17px;
+                border: 1px solid #67A6EF;
+            }
+
+        .score-title {
+            font-weight: 600;
+            margin-left: -5px;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="content-container"></header>
+    <section class="header-title">
+        <div class="title-info">
+            <input type="hidden" id="sendId" name="sendId" value="181455">
+            <input type="hidden" id="bsLineMark" name="bsLineMark" value="CPMS">
+            <input type="hidden" id="sendType" name="sendType" value="1">
+            <p>国银金租2025秋季校园招聘</p>
+            <span class="style">宣讲会|</span>
+            <span class="style">武汉大学</span>
+            <p class="style">2024-10-13 | 14:30-16:30</p>
+            <p class="style"></p>
+            <p class="style">项目经理：卓佳玲</p>
+            <p class="style">执行人：王丹</p>
+            <p class="style cut-off－rule">
+                场地容纳
+                <span>60</span>人&emsp;|&emsp;到场
+                <span>31</span>人&emsp;
+        </div>
+        <div class="start-info">
+            <div class="score-title">本场活动</div>
+            <div>
+                <span>到场情况</span>
+                <span class="start-list">
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                </span>
+                <span class="score">
+                    <i>5</i>分
+                </span>
+            </div>
+            <div>
+                <span>场地设备</span>
+                <span class="start-list">
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                </span>
+                <span class="score">
+                    <i>5</i>分
+                </span>
+            </div>
+            <div class="score-title">现场工作人员</div>
+            <div>
+                <span>服务态度</span>
+                <span class="start-list">
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                </span>
+                <span class="score">
+                    <i>5</i>分
+                </span>
+            </div>
+            <div>
+                <span>问题解决</span>
+                <span class="start-list">
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                    <span class="start-num start-on"></span>
+                </span>
+                <span class="score">
+                    <i>5</i>分
+                </span>
+            </div>
+        </div>
+        <div class="desc-info">
+            <p>我想对智联说</p>
+            <textarea placeholder="写几句评价吧..." id="descInfo"></textarea>
+        </div>
+    </section>
+    <footer>
+        <button id="clickBtn" type="button" onclick="submitStart()">提交</button>
+    </footer>
+    <script>
+        var ctx = "";
+        $(function () {
+            $('.start-list').children().each(function (i, k) {
+                $(k).click(function () {
+                    if ($(this).prev()) {
+                        $(this).addClass('start-on');
+                        $(this).prevAll().addClass('start-on');
+                        $(this).nextAll().removeClass('start-on');
+                    }
+                    $(k).parent().next().children('i').html($(k).parent().children('.start-on')
+                        .length)
+                })
+            })
+        })
+
+        function submitStart() {
+            if (localStorage.getItem("aa") != 0) {
+                localStorage.setItem("aa", 0);
+                alert("提交成功");
+            } else {
+                alert("您已经提交过评价了");
+            }
+           
+            return;
+            var startNums = [];
+            $('.start-list').each(function (i, k) {
+                startNums.push($(k).children('.start-on').length)
+            })
+            if (!$('#descInfo').val()) {
+                for (var i = 0; i < startNums.length; i++) {
+                    if (startNums[i] <= 3) {
+                        if ($("#sendType").val() == 1) {
+                            alert("请写几句评价吧！");
+                        } else {
+                            alert("请填写对PD的建议！");
+                        }
+                        return;
+                    }
+                }
+            }
+
+            var params;
+            //客户评价
+            if ($("#sendType").val() == 1 && ($("#bsLineMark").val() == 'CPMS')) {
+                params = {
+                    attendScore: startNums[0],
+                    venueScore: startNums[1],
+                    staffServiceScore: startNums[2],
+                    staffProblemSolvingScore: startNums[3],
+                    surveyInfo: $('#descInfo').val(),
+                    sendId: $("#sendId").val()
+                };
+            } else if ($("#sendType").val() == 1 && ($("#bsLineMark").val() == 'HW')) {
+                params = {
+                    totalScore: startNums[0],
+                    attendScore: startNums[1],
+                    teamScore: startNums[2],
+                    venueScore: startNums[3],
+                    surveyInfo: $('#descInfo').val(),
+                    sendId: $("#sendId").val()
+                };
+            } else if ($("#sendType").val() == 1 && ($("#bsLineMark").val() != 'CPMS' && $("#bsLineMark").val() != 'HW')) {
+                params = {
+                    prepareScore: startNums[0],
+                    sequenceScore: startNums[1],
+                    teamScore: startNums[2],
+                    posterScore: startNums[3],
+                    surveyInfo: $('#descInfo').val(),
+                    sendId: $("#sendId").val()
+                };
+            } else {
+                var prepareScore = startNums[0];
+                var communicationScore = startNums[1];
+                params = {
+                    prepareScore: prepareScore,
+                    communicationScore: communicationScore,
+                    surveyInfo: $('#descInfo').val(),
+                    sendId: $("#sendId").val()
+                };
+            }
+            $("#clickBtn").hide();
+            $.ajax({
+                type: 'post',
+                url: ctx + "/wechat/survey/receiveSurvey",
+                cache: false,
+                data: params,
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data)
+                    if (data.code == 200) {
+                        document.location.reload();
+                    } else {
+                        alert(data.apiErrorMessage);
+                    }
+                },
+                error: function () {
+                    alert("请求失败")
+                }
+            })
+        }
+    </script>
+</body>
+
+</html>
