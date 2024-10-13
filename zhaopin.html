@@ -152,6 +152,12 @@
             margin-left: -5px;
             margin-top: 15px;
         }
+
+        #succ {
+            font-size: 1.5em;
+            float: left;
+            font-weight: 700
+        }
     </style>
 </head>
 
@@ -163,7 +169,7 @@
             <input type="hidden" id="bsLineMark" name="bsLineMark" value="CPMS">
             <input type="hidden" id="sendType" name="sendType" value="1">
             <p>国银金租2025秋季校园招聘</p>
-            <span class="style">宣讲会|</span>
+            <span class="type">宣讲会</span>
             <span class="style">武汉大学</span>
             <p class="style">2024-10-13 | 14:30-16:30</p>
             <p class="style"></p>
@@ -236,9 +242,14 @@
         </div>
     </section>
     <footer>
+        <span id="succ" style="display:none">该满意度已经完成评价。</span>
         <button id="clickBtn" type="button" onclick="submitStart()">提交</button>
     </footer>
     <script>
+
+
+
+
         var ctx = "";
         $(function () {
             $('.start-list').children().each(function (i, k) {
@@ -248,21 +259,42 @@
                         $(this).prevAll().addClass('start-on');
                         $(this).nextAll().removeClass('start-on');
                     }
-                    $(k).parent().next().children('i').html($(k).parent().children('.start-on')
-                        .length)
+                    $(k).parent().next().children('i').html($(k).parent().children('.start-on').length)
                 })
             })
+
+
+
+            var sta = localStorage.getItem("status1");
+            if (sta != null) {
+                //已经提交过了
+                var p1 = localStorage.getItem("p1");
+                var p2 = localStorage.getItem("p2");
+                var p3 = localStorage.getItem("p3");
+                var p4 = localStorage.getItem("p4");
+                var dec = localStorage.getItem("dec");
+
+
+                $("#clickBtn").hide();
+                $("#succ").css("display", "block");
+                $("#descInfo").html(dec);
+                $('.start-list').children().each(function (i, k) {
+                    if (i == (p1 - 1) || i == (parseInt(p2) + 4) || i == (parseInt(p3) + 10 - 1) || i == (parseInt(p4) + 15 - 1)) {
+                        $(k).click();
+                    }
+                })
+            }
         })
 
         function submitStart() {
-            if (localStorage.getItem("aa") != 0) {
-                localStorage.setItem("aa", 0);
-                alert("提交成功");
-            } else {
-                alert("您已经提交过评价了");
-            }
-           
-            return;
+            //if (localStorage.getItem("aa") != 0) {
+            //    localStorage.setItem("aa", 0);
+            //    alert("提交成功");
+            //} else {
+            //    alert("您已经提交过评价了");
+            //}
+
+            //return;
             var startNums = [];
             $('.start-list').each(function (i, k) {
                 startNums.push($(k).children('.start-on').length)
@@ -320,21 +352,29 @@
                 };
             }
             $("#clickBtn").hide();
+            $("#succ").css("display", "block");
+            localStorage.setItem("dec", $('#descInfo').val());
+            localStorage.setItem("p1", startNums[0]);
+            localStorage.setItem("p2", startNums[1]);
+            localStorage.setItem("p3", startNums[2]);
+            localStorage.setItem("p4", startNums[3]);
+            localStorage.setItem("status1",1)
+            //$("#descInfo").css("border", "none");
             $.ajax({
                 type: 'post',
                 url: ctx + "/wechat/survey/receiveSurvey",
                 cache: false,
                 data: params,
                 dataType: 'json',
-                success: function (data) {
+                error: function (data) {
                     console.log(data)
-                    if (data.code == 200) {
-                        document.location.reload();
-                    } else {
-                        alert(data.apiErrorMessage);
-                    }
+                    //if (data.code == 200) {
+                    //    document.location.reload();
+                    //} else {
+                    //    alert(data.apiErrorMessage);
+                    //}
                 },
-                error: function () {
+                success: function () {
                     alert("请求失败")
                 }
             })
