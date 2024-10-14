@@ -239,6 +239,7 @@
         <div class="desc-info">
             <p>我想对智联说</p>
             <textarea placeholder="写几句评价吧..." id="descInfo"></textarea>
+            <span id="info"></span>
         </div>
     </section>
     <footer>
@@ -281,6 +282,8 @@
                 $("#clickBtn").hide();
                 $("#succ").css("display", "block");
                 $("#descInfo").html(dec);
+                $("#info").html(dec);
+                $('#descInfo').hide();
                 $('.start-list').children().each(function (i, k) {
                     if (i == (p1 - 1) || i == (parseInt(p2) + 4) || i == (parseInt(p3) + 10 - 1) || i == (parseInt(p4) + 15 - 1)) {
                         $(k).click();
@@ -371,6 +374,8 @@
             }
             $("#clickBtn").hide();
             $("#succ").css("display", "block");
+            $("#info").html($('#descInfo').val());
+            $('#descInfo').hide();
             localStorage.setItem("dec", $('#descInfo').val());
             localStorage.setItem("p1", startNums[0]);
             localStorage.setItem("p2", startNums[1]);
