@@ -252,6 +252,8 @@
 
         var ctx = "";
         $(function () {
+            var sta = localStorage.getItem("status1");
+
             $('.start-list').children().each(function (i, k) {
                 $(k).click(function () {
                     if ($(this).prev()) {
@@ -259,13 +261,14 @@
                         $(this).prevAll().addClass('start-on');
                         $(this).nextAll().removeClass('start-on');
                     }
-                    $(k).parent().next().children('i').html($(k).parent().children('.start-on').length)
+                    $(k).parent().next().children('i').html($(k).parent().children('.start-on').length);
                 })
             })
 
 
 
             var sta = localStorage.getItem("status1");
+            console.log(sta)
             if (sta != null) {
                 //已经提交过了
                 var p1 = localStorage.getItem("p1");
@@ -281,9 +284,23 @@
                 $('.start-list').children().each(function (i, k) {
                     if (i == (p1 - 1) || i == (parseInt(p2) + 4) || i == (parseInt(p3) + 10 - 1) || i == (parseInt(p4) + 15 - 1)) {
                         $(k).click();
+                    } else if (i >= parseInt(p1)&&i<5) {
+                        $(k).hide();
                     }
-                        $(k).off("click");
+                    else if ((i > 5 && i < 10) && i >= parseInt(p2)+5) {
+                        $(k).hide();
+                    }
+                    else if ((i > 10 && i < 15) && i >= parseInt(p3) + 10) {
+                        $(k).hide();
+                    } else if ((i > 15 && i < 20) && i >= parseInt(p4) + 15) {
+                        $(k).hide();
+                    }
+                    //$(k).css("background", "url(https://cctimage.zhaopin.com/static/wechat-pd/nostar.png)")
+                    //$(k).css("background-size", "100% 100%")
+                    //$(k).removeClass('start-on');
+                    $(k).off("click");
                 })
+
             }
         })
 
@@ -359,7 +376,7 @@
             localStorage.setItem("p2", startNums[1]);
             localStorage.setItem("p3", startNums[2]);
             localStorage.setItem("p4", startNums[3]);
-            localStorage.setItem("status1",1)
+            localStorage.setItem("status1", 1)
             //$("#descInfo").css("border", "none");
             $.ajax({
                 type: 'post',
@@ -368,6 +385,7 @@
                 data: params,
                 dataType: 'json',
                 error: function (data) {
+                    location.reload();
                     console.log(data)
                     //if (data.code == 200) {
                     //    document.location.reload();
